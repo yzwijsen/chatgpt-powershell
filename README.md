@@ -1,7 +1,7 @@
 # 🤖 ChatGPT Powershell 🚀
 
 This is a simple PowerShell script that allows you to interact with OpenAI's ChatGPT 🧠 in a conversational manner. The script provides a command-line interface for users to ask questions or provide prompts, and it will return ChatGPT's response.
-It serves as a simple example on how to use the chatGPT's api with powershell.
+It serves as a simple example on how to use chatGPT's api with powershell.
 
 ## ⚙️ Requirements
 
