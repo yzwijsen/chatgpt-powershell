@@ -23,11 +23,6 @@ It serves as a simple example on how to use the chatGPT's api with powershell.
 6. To exit the script, type `exit` and press Enter 🚪.
 7. To reset the conversation and start a new one, type `reset` and press Enter 🔄.
 
-## 📚 Functions
-
-- `Initialize-SystemMessage`: Sets the initial system message that sets the context for the AI 🌐.
-- `Invoke-ChatGPT`: Sends a message to ChatGPT and
-
 ## 📖 Example
 
 ```plaintext
