@@ -1,11 +1,14 @@
 param (
-    # The AI system message. This sets the context for the AI.
-    [string]$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email.", # Default: "You are a helpful assistant"
-    [string]$UserMessage = "Bram, send me those sales reports asap"
+    #
+    [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+    [string]$UserInput = "Bram, send me those sales reports asap",
+    # The AI system message. This sets the context for the AI. Optional. ChatGPT default value: "You are a helpful assistant"
+    [Parameter(Mandatory = $false, ValueFromPipeline = $true)]
+    [string]$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email."
 )
 
 # Define API key and endpoint
-$ApiKey = "<your API key>"
+$ApiKey = "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"
 $ApiEndpoint = "https://api.openai.com/v1/chat/completions"
 
 # Function to send a message to ChatGPT
@@ -41,7 +44,7 @@ function Invoke-ChatGPT ($message) {
 }
 
 # Query ChatGPT
-$AiResponse = Invoke-ChatGPT $UserMessage
+$AiResponse = Invoke-ChatGPT $UserInput
 
 # Show response
 return $AiResponse

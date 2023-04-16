@@ -5,7 +5,7 @@ $ApiEndpoint = "https://api.openai.com/v1/chat/completions"
 # Define the system message. This sets the context for the AI.
 $AiSystemMessage = "You are a helpful assistant" # Default: "You are a helpful assistant"
 
-[System.Collections.Generic.List[Hashtable]]$MessageHistory = @()  # Message history
+[System.Collections.Generic.List[Hashtable]]$MessageHistory = @()
 
 # Sets the initial system message
 Function Initialize-MessageHistory ($message){
