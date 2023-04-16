@@ -36,13 +36,14 @@ function Invoke-ChatGPT ($MessageHistory) {
     return $response.choices[0].message.content
 }
 
-# Main loop
-
+# Show startup text
 Clear-Host
 Write-Host "######################`n# ChatGPT Powershell #`n######################`n`nEnter your prompt to continue. (type 'exit' to quit or 'reset' to start a new chat)" -ForegroundColor Yellow
 
+# Add system message to MessageHistory
 Initialize-MessageHistory $AiSystemMessage
 
+# Main loop
 while ($true) {
     # Capture user input
     $userMessage = Read-Host "`nYou"
