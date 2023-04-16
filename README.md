@@ -13,12 +13,12 @@ It serves as a simple example on how to use chatGPT's api with powershell.
 ## 🛠️ Setup
 
 1. Replace `<your API key>` in the script with your OpenAI API key 🔑.
-2. Save the script as `ChatGPT-Powershell.ps1` or a name of your choice.
+2. Save the script as `ChatGPT.ps1` or a name of your choice.
 
 ## 🚀 Usage
 
 1. Open PowerShell and navigate to the folder containing the script 📁.
-2. Execute the script: `.\ChatGPT-Powershell.ps1` 🖥️.
+2. Execute the script: `.\ChatGPT.ps1` 🖥️.
 3. You'll see a welcome message and a prompt to enter your question or command 🎤.
 4. Type your question or command and press Enter ⌨️.
 5. The AI will respond with its output 💬.
