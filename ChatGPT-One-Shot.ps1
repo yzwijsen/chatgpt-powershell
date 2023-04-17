@@ -4,7 +4,7 @@ param (
     [string]$UserInput = "Bram, send me those sales reports asap",
     # The AI system message. This sets the context for the AI. Optional. ChatGPT default value: "You are a helpful assistant"
     [Parameter(Mandatory = $false, ValueFromPipeline = $true)]
-    [string]$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email."
+    [string]$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email. Please provide 3 seperate answers ranging from informal, formal to business formal. All answers must be in the same language as the provided input."
 )
 
 # Define API key and endpoint
