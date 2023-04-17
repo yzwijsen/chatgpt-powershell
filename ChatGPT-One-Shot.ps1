@@ -1,5 +1,5 @@
 param (
-    #
+    # User input / prompt to be sent to ChatGPT. Mandatory.
     [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
     [string]$UserInput = "Bram, send me those sales reports asap",
     # The AI system message. This sets the context for the AI. Optional. ChatGPT default value: "You are a helpful assistant"
@@ -8,7 +8,7 @@ param (
 )
 
 # Define API key and endpoint
-$ApiKey = "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"
+$ApiKey = "<your API key>"
 $ApiEndpoint = "https://api.openai.com/v1/chat/completions"
 
 # Function to send a message to ChatGPT
