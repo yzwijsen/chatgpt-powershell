@@ -1,15 +1,18 @@
-param (
-    # User input / prompt to be sent to ChatGPT. Mandatory.
-    [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
-    [string]$UserInput = "Bram, send me those sales reports asap",
-    # The AI system message. This sets the context for the AI. Optional. ChatGPT default value: "You are a helpful assistant"
-    [Parameter(Mandatory = $false, ValueFromPipeline = $true)]
-    [string]$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email. Please provide 3 seperate answers ranging from informal, formal to business formal. All answers must be in the same language as the provided input."
-)
+<#
+This script will ask the user for a rough draft or message and will respond with 3 well written, professional versions,  powered by ChatGPT.
+The 3 emails will be phrased differently with one being informal, one formal and the last one business formal.
+#>
 
 # Define API key and endpoint
 $ApiKey = "<your API key>"
 $ApiEndpoint = "https://api.openai.com/v1/chat/completions"
+
+<#
+System message.
+You can use this to give the AI instructions on what to do, how to act or how to respond to future prompts.
+Default value for ChatGPT = "You are a helpful assistant."
+#>
+$AiSystemMessage = "You are an email writing assistant. I will provide you with a rough draft of an email or some general message that I want to convey and you will respond with a clean, professionally writen email. Please provide 3 seperate answers ranging from informal, formal to business formal. All answers must be in the same language as the provided input."
 
 # Function to send a message to ChatGPT
 function Invoke-ChatGPT ($message) {
@@ -32,8 +35,8 @@ function Invoke-ChatGPT ($message) {
     $requestBody = @{
         "model" = "gpt-3.5-turbo"
         "messages" = $messages
-        "max_tokens" = 1000
-        "temperature" = 0.7
+        "max_tokens" = 2000 # Max amount of tokens the AI will respond with
+        "temperature" = 0.5 # lower is more coherent and conservative, higher is more creative and diverse.
     }
 
     # Send the request
@@ -43,8 +46,13 @@ function Invoke-ChatGPT ($message) {
     return $response.choices[0].message.content
 }
 
+# Get user input
+$userInput = Read-Host "Rough email draft or message"
+
 # Query ChatGPT
 $AiResponse = Invoke-ChatGPT $UserInput
 
 # Show response
-return $AiResponse
+write-output $AiResponse
+
+Read-Host "Press enter to Exit..."
