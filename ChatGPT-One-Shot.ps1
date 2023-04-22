@@ -1,6 +1,6 @@
 <#
-This script will ask the user for a rough draft or message and will respond with 3 well written, professional versions,  powered by ChatGPT.
-The 3 emails will be phrased differently with one being informal, one formal and the last one business formal.
+This script will take a rough email draft and help you turn it into a professionally written email.
+It's a minimal example showing how to set a system message in order to elicit a one-shot response from ChatGPT.
 #>
 
 # Define API key and endpoint
