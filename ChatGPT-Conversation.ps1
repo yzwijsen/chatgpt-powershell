@@ -1,19 +1,29 @@
-﻿# Define API key and endpoint
+﻿<#
+This script will let you have a conversation with ChatGPT.
+It shows how to keep a history of all previous messages and feed them into the REST API in order to have an ongoing conversation.
+#>
+
+# Define API key and endpoint
 $ApiKey = "<your API key>"
 $ApiEndpoint = "https://api.openai.com/v1/chat/completions"
 
-# Define the system message. This sets the context for the AI.
-$AiSystemMessage = "You are a helpful assistant" # Default: "You are a helpful assistant"
+<#
+System message.
+You can use this to give the AI instructions on what to do, how to act or how to respond to future prompts.
+Default value for ChatGPT = "You are a helpful assistant."
+#>
+$AiSystemMessage = "You are a helpful assistant"
 
+# we use this list to store the system message and will add any user prompts and ai responses as the conversation evolves.
 [System.Collections.Generic.List[Hashtable]]$MessageHistory = @()
 
-# Sets the initial system message
+# Clears the message history and fills it with the system message (and allows us to reset the history and start a new conversation)
 Function Initialize-MessageHistory ($message){
     $script:messages.Clear()
     $script:messages.Add(@{"role" = "system"; "content" = $message}) | Out-Null
 }
 
-# Function to send a message to ChatGPT
+# Function to send a message to ChatGPT. (We need to pass the entire message history in each request since we're using a RESTful API)
 function Invoke-ChatGPT ($MessageHistory) {
     # Set the request headers
     $headers = @{
@@ -25,8 +35,8 @@ function Invoke-ChatGPT ($MessageHistory) {
     $requestBody = @{
         "model" = "gpt-3.5-turbo"
         "messages" = $MessageHistory
-        "max_tokens" = 1000
-        "temperature" = 0.7
+        "max_tokens" = 1000 # Max amount of tokens the AI will respond with
+        "temperature" = 0.7 # Lower is more coherent and conservative, higher is more creative and diverse.
     }
 
     # Send the request
