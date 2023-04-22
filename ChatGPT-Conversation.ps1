@@ -19,8 +19,8 @@ $AiSystemMessage = "You are a helpful assistant"
 
 # Clears the message history and fills it with the system message (and allows us to reset the history and start a new conversation)
 Function Initialize-MessageHistory ($message){
-    $script:messages.Clear()
-    $script:messages.Add(@{"role" = "system"; "content" = $message}) | Out-Null
+    $script:MessageHistory.Clear()
+    $script:MessageHistory.Add(@{"role" = "system"; "content" = $message}) | Out-Null
 }
 
 # Function to send a message to ChatGPT. (We need to pass the entire message history in each request since we're using a RESTful API)
