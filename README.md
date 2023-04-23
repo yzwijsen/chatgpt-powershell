@@ -42,24 +42,12 @@ Both scripts serve as simple examples on how to use ChatGPT's API with PowerShel
 ## 📖 Examples
 
 **ChatGPT-Conversation.ps1**
-```plaintext
-######################
-# ChatGPT Powershell #
-######################
-Enter your prompt to continue. (type 'exit' to quit or 'reset' to start a new chat)
 
-You: What is the capital of France?
-AI: The capital of France is Paris.
-```
+![ChatGPT-Conversation](https://user-images.githubusercontent.com/1075201/233834796-2267e42a-4f1b-4320-a43c-d5f92f5cdb04.png)
 
 **ChatGPT-One-Shot.ps1**
-```plaintext
-Rough email draft or message: Can we meet tomorrow at 3pm to discuss the project?
 
-Informal: Sure, let's meet tomorrow at 3pm to talk about the project! 😊
-Formal: Yes, I'd be happy to meet with you tomorrow at 3pm to discuss the project in detail.
-Business Formal: Dear [Recipient], I am writing to confirm our meeting tomorrow at 3:00 PM to discuss the ongoing project. I look forward to our productive conversation. Best regards, [Your Name]
-```
+![ChatGPT-One-Shot](https://user-images.githubusercontent.com/1075201/233834801-1cfc59fc-72b3-4e0f-b5af-470993929a3a.png)
 
 ## 📝 Notes
 The scripts initialize the AI with a default system message. You can change this message to set a different context for the AI by modifying the $AiSystemMessage variable.
